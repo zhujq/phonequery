@@ -2,6 +2,7 @@ FROM golang:1.16-alpine3.13 as builder
 
 WORKDIR $GOPATH/src/phonequery
 COPY . .
+COPY phonedata $GOPATH/src/phonequery/phonedata
 
 RUN apk add --no-cache git && set -x && \
     go mod init && go get -d -v
