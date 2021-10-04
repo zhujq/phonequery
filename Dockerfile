@@ -2,7 +2,6 @@ FROM golang:1.16-alpine3.13 as builder
 
 WORKDIR $GOPATH/src/phonequery
 COPY . .
-COPY phonedata $GOPATH/src/phonequery/phonedata
 
 RUN apk add --no-cache git && set -x && \
     go mod init && go get -d -v
@@ -15,7 +14,7 @@ WORKDIR /
 RUN mkdir -p /phonedata/
 COPY --from=builder /phonequery . 
 ADD ./phonedata/phone.dat  /phonedata/phone.dat
-
+ADD entrypoint.sh /entrypoint.sh
 RUN  chmod +x /phonequery  && chmod 777 /entrypoint.sh
 ENTRYPOINT  /entrypoint.sh 
 
