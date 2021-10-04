@@ -1,0 +1,5 @@
+chmod +x phonequery
+ ./phonequery
+
+
+
