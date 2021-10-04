@@ -11,10 +11,9 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /phonequery phonequery-main.go
 FROM alpine:latest
 
 WORKDIR /
-RUN mkdir -p /phonedata/
 COPY --from=builder /phonequery . 
-ADD ./phonedata/phone.dat  /phonedata/phone.dat
 ADD entrypoint.sh /entrypoint.sh
+ADD phone.dat /phone.dat
 RUN  chmod +x /phonequery  && chmod 777 /entrypoint.sh
 ENTRYPOINT  /entrypoint.sh 
 
