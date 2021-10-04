@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strings"
 	"github.com/devfeel/dotweb"
-	"./phonedata"
+	"github.com/xluohome/phonedata"
 )
 
 type App struct {
