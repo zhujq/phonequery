@@ -66,7 +66,7 @@ func indexHandler(ctx dotweb.Context) error {
 
 	if phonenum == "" {
 		log.Println("ERROR: 没有提供电话号码")
-		return ctx.WriteString("欢迎使用中国电话号码查询系统，请在网址后输入phonenum=电话号码查询，如https://phone.zhujq.ml/?phonenum=13988888888")
+		return ctx.WriteString("欢迎使用中国电话号码查询系统，请在网址后输入 /?phonenum=电话号码 查询，如https://phone.zhujq.ml/?phonenum=13988888888")
 	}
 
 	var message = ResBody{
